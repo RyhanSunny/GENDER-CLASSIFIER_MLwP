@@ -39,7 +39,29 @@ predict_tree = class_tree.predict(X)
 predict_SVC = class_SVC.predict(X)
 predict_perc = class_perc.predict(X)
 predict_KNN = class_KNN.predict(X)
+predict_GSNB = class_GSNB.predict(X)
 
 # TESTING ACCURACY OF THOSE PREDICTION
+accu_tree = accuracy_score(Y, predict_tree) * 100 # times 100 to make percentage
+print('Decision Tree Accuracy: {}'.format(accu_tree))
+
+accu_SVC = accuracy_score(Y, predict_SVC) * 100
+print('SVC Accuracy: {}'.format(accu_SVC))
+
+accu_perc = accuracy_score(Y, predict_perc) * 100
+print('Perceptron Accuracy: {}'.format(accu_perc))
+
+accu_KNN = accuracy_score(Y, predict_KNN) * 100
+print('KNeighbors accuracy: {}'.format(accu_KNN))
+
+accu_GSNB = accuracy_score(Y, predict_GSNB) * 100
+print('GaussianNB accuracy: {}'.format(accu_GSNB))
+
+# CHOOSING THE MOST ACCURATE MODEL
+index = np.argmax([accu_tree, accu_SVC, accu_perc, accu_KNN, accu_GSNB])
+clf = {0: 'Decision tree', 1: 'SVC', 2: 'Perceptron', 3: 'KNeighbors', 4: 'GaussianNB'}
+print('Best gender classifier model is: {}'.format(clf[index]))
+
+
 
 
