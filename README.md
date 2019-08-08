@@ -11,8 +11,8 @@ and calculate their accuracy (percentage) using the same data then choose the mo
     *scipy
 
 # Usage
-python gender-classifier-demo.py
-python GENDER_CLASSIFIER_USING MULTIPLE MODELS.py
+    python gender-classifier-demo.py
+    python GENDER_CLASSIFIER_USING MULTIPLE MODELS.py
 
 or
-use pyCharm
+    use pyCharm
