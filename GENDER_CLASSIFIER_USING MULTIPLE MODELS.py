@@ -11,7 +11,9 @@ from sklearn.linear_model import Perceptron #-perception classifier
 from sklearn.neighbors import KNeighborsClassifier #-KNeighbors classifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score #-to determine accuracy
-import numpy as np
+import numpy as np #-for array operations
+from warnings import simplefilter #-IGNORING the annoying FutureWarning by SK-Learn
+simplefilter(action='ignore', category=FutureWarning)
 
 # Data set (X) and gender labels (Y)
 X = [[185, 82, 45], [166, 62, 37], [175, 72, 41], [155, 53, 38], [165, 63, 41], [192, 92, 45], [177, 65, 33],
@@ -41,9 +43,47 @@ predict_perc = class_perc.predict(X)
 predict_KNN = class_KNN.predict(X)
 predict_GSNB = class_GSNB.predict(X)
 
+# PREDICTING USING DIFFERENT DATA SET
+print('ATTEMPT 1: for height: 250, weight: 70, shoe size: 45')
+print('Decision tree guessed: ', class_tree.predict([[250, 70, 45]]))
+print('SVC guessed: ', class_SVC.predict([[250, 70, 45]]))
+print('Perceptron guessed: ', class_perc.predict([[250, 70, 45]]))
+print('KNN guessed: ', class_KNN.predict([[250, 70, 45]]))
+print('GaussianNB guessed: ', class_GSNB.predict([[250, 70, 45]]))
+
+print('\nATTEMPT 2: for height: 175, weight: 72, shoe size: 41')
+print('Decision tree guessed: ', class_tree.predict([[175, 72, 41]]))
+print('SVC guessed: ', class_SVC.predict([[175, 72, 41]]))
+print('Perceptron guessed: ', class_perc.predict([[175, 72, 41]]))
+print('KNN guessed: ', class_KNN.predict([[175, 72, 41]]))
+print('GaussianNB guessed: ', class_GSNB.predict([[175, 72, 41]]))
+
+print('\nATTEMPT 3: for height: 166, weight: 62, shoe size: 37')
+print('Decision tree guessed: ', class_tree.predict([[166, 62, 37]]))
+print('SVC guessed: ', class_SVC.predict([[166, 62, 37]]))
+print('Perceptron guessed: ', class_perc.predict([[166, 62, 37]]))
+print('KNN guessed: ', class_KNN.predict([[166, 62, 37]]))
+print('GaussianNB guessed: ', class_GSNB.predict([[166, 62, 37]]))
+
+print('\nATTEMPT 4: for height: 177, weight: 165, shoe size: 33')
+print('Decision tree guessed: ', class_tree.predict([[177, 65, 33]]))
+print('SVC guessed: ', class_SVC.predict([[177, 65, 33]]))
+print('Perceptron guessed: ', class_perc.predict([[177, 65, 33]]))
+print('KNN guessed: ', class_KNN.predict([[177, 65, 33]]))
+print('GaussianNB guessed: ', class_GSNB.predict([[177, 65, 33]]))
+
+print('\nATTEMPT 5: for height: 171, weight: 75, shoe size: 42')
+print('Decision tree guessed: ', class_tree.predict([[171, 75, 42]]))
+print('SVC guessed: ', class_SVC.predict([[171, 75, 42]]))
+print('Perceptron guessed: ', class_perc.predict([[171, 75, 42]]))
+print('KNN guessed: ', class_KNN.predict([[171, 75, 42]]))
+print('GaussianNB guessed: ', class_GSNB.predict([[171, 75, 42]]))
+
 # TESTING ACCURACY OF THOSE PREDICTION
+print("\nTesting 11 more data set")
+
 accu_tree = accuracy_score(Y, predict_tree) * 100 # times 100 to make percentage
-print('Decision Tree Accuracy: {}'.format(accu_tree))
+print('\nDecision Tree Accuracy: {}'.format(accu_tree))
 
 accu_SVC = accuracy_score(Y, predict_SVC) * 100
 print('SVC Accuracy: {}'.format(accu_SVC))
