@@ -41,5 +41,5 @@ predict_perc = class_perc.predict(X)
 predict_KNN = class_KNN.predict(X)
 
 # TESTING ACCURACY OF THOSE PREDICTION
-test
+
 
